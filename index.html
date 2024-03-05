@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+
+    @font-face {
+      font-family: Wbold;
+      src: url(./assets/fonts/static/WorkSans-Bold.ttf);
+    }
+
+    @font-face {
+      font-family: Wregular;
+      src:url(./assets/fonts/static/WorkSans-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: Wsemibold;
+      src:url(./assets/fonts/static/WorkSans-SemiBold.ttf);
+    }
+    body {
+      background-image: url(./assets/images/background-pattern-desktop.svg);
+      background-size:1390px  320px;
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+    }
+
+    .whole {
+      margin: 10% 20%;
+      padding-bottom: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      border: 1px solid black;
+    }
+    .heading {
+      display: flex;
+      margin-top: 4%;
+      margin-left: 6%;
+      font-family: Wbold;
+    }
+
+    .heading img {
+      width: 5%;
+      margin-right: 1%;
+      color: hsl(292, 42%, 14%);
+    }
+    .accordion {
+      text-align: left;
+      background-color: #fff;
+      color: hsl(292, 42%, 14%);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 20px 10px 20px 10px;
+      width: 90%;
+      margin-left: 4%;
+      font-family: Wbold;
+    }
+
+    
+    .panel {
+      color:hsl(292, 42%, 14%);
+      padding: 0 18px;
+      max-height: 0;
+      overflow: hidden;
+      margin-left: 4%;
+      margin-right: 4%;
+      font-family: Wregular;
+      line-height: 24px;
+      transition: max-height 0.2s ease-out;
+    }
+
+    .active {
+     
+    }
+
+    .accordion:after {
+      content: '\02795';
+      font-size: 13px;
+      border-radius: 50%;
+      color: #fff;
+      background-color:  hsl(292, 16%, 49%);
+      padding: 3px;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: '\2796';
+    }
+
+    @media only screen and (max-width: 375px) {
+      body {
+        background-size: 425px 100px;
+      }
+      .whole {
+        margin: 25% 10%;
+      }
+      .heading h1 {
+        font-size: 24px;
+        margin-left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="whole">
+  <div class="heading">
+    <img src="./assets/images/icon-star.svg" alt="">
+    <h1>FAQs</h1>
+  </div>
+  
+  <button class="accordion">What is Frontend Mentor, and how will it help me?
+</button>
+
+  <div class="panel">Frontend Mentor offers realistic coding challenges to help developers improve their 
+  frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+  all levels and ideal for portfolio building.
+  </div>
+
+  
+  <button class="accordion">
+  Is Frontend Mentor free?
+  </button>
+  <div class="panel">
+  Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+  option providing access to a range of projects suitable for all skill levels.
+    </div>
+    <button class="accordion">
+  Can I use Frontend Mentor projects in my portfolio?
+      </button>
+  <div class="panel">
+  Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+  way to showcase your skills to potential employers!
+    </div>
+  <button class="accordion">
+      How can I get help if I'm stuck on a Frontend Mentor challenge?
+  </button>
+  <div class="panel">
+  The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+  channel where you can ask questions and seek support from other community members.
+    </div>
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+  
+      for(i = 0; i < acc.length; i++){
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if(panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          }
+          else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+</div>
+</body>
+</html>
